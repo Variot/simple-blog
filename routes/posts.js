@@ -28,4 +28,13 @@ module.exports = function(app) {
   app.get("/post/creation", function(req, res) {
     res.render("insertion");
   });
+  /**
+  * 	On supprime l'article dont l'id est passé en paramètre
+  */
+   app.get("/supprimer/:id", function(req, res) {
+    app.db.collection("articles").deleteOne({ "_id":  new ObjectID(req.params.id)},function(err, article) {
+      if (err) throw err;
+    });
+    res.redirect('http://localhost:8000/');
+  });
 }
