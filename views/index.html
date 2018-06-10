@@ -1,5 +1,27 @@
-doctype html 
-head
-  title XXX
-body
-  Hello world
+<!DOCTYPE html >
+<html>
+  <head>
+      <title>Liste des articles</title> 
+  </head>
+
+  <body>
+    <h1> Nos articles</h1>
+
+    <table border="solid black 1px">
+      <tr>
+        <th>Titre</th>
+        <th>Auteur</th>
+        <th>Résumé</th>
+        <th>Supprimmer</th>
+      </tr>
+      each article in articles
+        <tr>
+          <td>#{article.titre}</td>
+          <td>#{article.auteur}</td>
+          <td>#{article.resume}</td>
+          <td><a href="http://localhost:8000/post/delete/#{article.id}">X</a></td>
+        </tr>
+    </table>
+
+  </body>
+</html>
